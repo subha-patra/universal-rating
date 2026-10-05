@@ -1,14 +1,14 @@
-# star-rate
+# universal-rating
 
 A lightweight universal rating package for JavaScript, Angular, React, Vue, Next/Nuxt, static HTML, and Web Components.
 
-- One root import: `import { starRate } from 'star-rate'`
+- One root import: `import { starRate } from 'universal-rating'`
 - No framework runtime dependency
 - Decimal ratings, hover preview, readonly and disabled states
 - Compact readonly product-card display with value and review count
 - Clearable ratings and required validation for forms
 - Rating meaning labels such as Poor, Good, and Excellent
-- RTL support for global products with `dir: 'rtl'` and `<star-rate dir="rtl">`
+- RTL support for global products with `dir: 'rtl'` and `<universal-rating dir="rtl">`
 - Focused interaction callbacks for hover, focus, blur, clear, and change
 - Theme presets: `default`, `minimal`, `material`, `bootstrap`, `outline`, and `filled`
 - Slot-based custom classes for root, item, icon, visible label, and validation error
@@ -19,20 +19,20 @@ A lightweight universal rating package for JavaScript, Angular, React, Vue, Next
 - Headless helpers for React Native and custom renderers
 - SSR-safe import
 
-Live demo: [https://subha-patra.github.io/star-rate/](https://subha-patra.github.io/star-rate/)
+Live demo: [https://subha-patra.github.io/universal-rating/](https://subha-patra.github.io/universal-rating/)
 
-Repository: [https://github.com/subha-patra/star-rate](https://github.com/subha-patra/star-rate)
+Repository: [https://github.com/subha-patra/universal-rating](https://github.com/subha-patra/universal-rating)
 
 ## Installation
 
 ```bash
-npm install star-rate
+npm install universal-rating
 ```
 
 ## JavaScript Usage
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 const rating = starRate.create('#rating', {
   value: 3.5,
@@ -47,10 +47,10 @@ rating.setValue(4);
 
 ## Mobile Web / Ionic Usage
 
-`star-rate` uses Pointer Events, so tap and drag work in mobile browsers and Ionic webviews.
+`universal-rating` uses Pointer Events, so tap and drag work in mobile browsers and Ionic webviews.
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rating', {
   value: 3.5,
@@ -64,7 +64,7 @@ starRate.create('#rating', {
 Use a preset to get a finished look quickly. Explicit color options still win over theme defaults.
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rating', {
   value: 4,
@@ -77,7 +77,7 @@ Available themes: `default`, `minimal`, `material`, `bootstrap`, `outline`, and 
 ## Custom Styling Hooks
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#styled-rating', {
   value: 4,
@@ -96,7 +96,7 @@ Use `customClass: 'my-rating'` as a shorthand when only the root control needs a
 ## Clearable Ratings
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rating', {
   value: 3,
@@ -111,7 +111,7 @@ When `clearable` is enabled, clicking the selected rating again resets the value
 Use compact readonly display when you need a small product-card or list rating.
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rating', {
   value: 4.5,
@@ -123,13 +123,13 @@ starRate.create('#rating', {
 ```
 
 ```html
-<star-rate
+<universal-rating
   value="4.5"
   readonly
   show-value
   count="245"
   suffix="reviews"
-></star-rate>
+></universal-rating>
 ```
 
 This renders a static summary like `4.5 ★ (245 reviews)` while preserving accessible text and form value support when `name` is set.
@@ -137,7 +137,7 @@ This renders a static summary like `4.5 ★ (245 reviews)` while preserving acce
 ## Rating Meaning Labels
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rating', {
   value: 4,
@@ -151,7 +151,7 @@ The label follows hover, tap, drag, keyboard, and selected values. Decimal value
 ## RTL Support
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rtl-rating', {
   value: 3,
@@ -166,7 +166,7 @@ Use `dir: 'rtl'` for right-to-left visual fill, pointer/touch math, and horizont
 ## Better Events
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 starRate.create('#rating', {
   value: 3,
@@ -184,7 +184,7 @@ starRate.create('#rating', {
 ## Required Validation
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 const rating = starRate.create('#rating', {
   required: true,
@@ -204,7 +204,7 @@ form.addEventListener('submit', event => {
 React Native cannot render DOM nodes or Web Components. Use the same package for rating math, then render with React Native `Pressable`, `Text`, or SVG components.
 
 ```ts
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 
 const value = starRate.valueFromPosition(locationX, width, {
   max: 5,
@@ -217,12 +217,12 @@ const value = starRate.valueFromPosition(locationX, width, {
 
 ```html
 <script type="module">
-  import { defineStarRateElement } from 'star-rate';
+  import { defineStarRateElement } from 'universal-rating';
   defineStarRateElement();
 </script>
 
 <form id="review-form">
-  <star-rate
+  <universal-rating
     name="rating"
     dir="rtl"
     theme="bootstrap"
@@ -231,7 +231,7 @@ const value = starRate.valueFromPosition(locationX, width, {
     required
     clearable
     error-text="Please select a rating"
-  ></star-rate>
+  ></universal-rating>
 
   <button type="submit">Submit review</button>
 </form>
@@ -246,7 +246,7 @@ Registered Web Components use `ElementInternals` for native form value and requi
 // React: create inside useEffect()
 // Vue/Nuxt: create inside onMounted()
 // Next.js: use inside a client component
-import { starRate } from 'star-rate';
+import { starRate } from 'universal-rating';
 ```
 
 ## Options
@@ -321,11 +321,11 @@ The Web Component dispatches:
 
 | Event | Detail |
 | --- | --- |
-| `star-rate-change` | `{ value }` |
-| `star-rate-hover` | `{ value }` |
-| `star-rate-focus` | `{ value }` |
-| `star-rate-blur` | `{ value }` |
-| `star-rate-clear` | `{ value: 0 }` |
+| `universal-rating-change` | `{ value }` |
+| `universal-rating-hover` | `{ value }` |
+| `universal-rating-focus` | `{ value }` |
+| `universal-rating-blur` | `{ value }` |
+| `universal-rating-clear` | `{ value: 0 }` |
 
 ```ts
 event.detail.value
@@ -333,7 +333,7 @@ event.detail.value
 
 ## Accessibility
 
-`star-rate` renders a keyboard-friendly slider with `role="slider"`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, and the configured `label`.
+`universal-rating` renders a keyboard-friendly slider with `role="slider"`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, and the configured `label`.
 
 Keyboard support:
 
@@ -344,7 +344,7 @@ Keyboard support:
 
 ## Migration From `angular-star`
 
-`angular-star` is replaced by `star-rate`.
+`angular-star` is replaced by `universal-rating`.
 
 | Old option | New option |
 | --- | --- |
@@ -359,11 +359,11 @@ The old option names still work as migration aliases.
 
 📛 Badges
 
-[![npm version](https://img.shields.io/npm/v/star-rate)](https://www.npmjs.com/package/star-rate)
-[![npm downloads](https://img.shields.io/npm/dt/star-rate)](https://www.npmjs.com/package/star-rate)
-[![GitHub issues](https://img.shields.io/github/issues/subha-patra/star-rate)](https://github.com/subha-patra/star-rate/issues)
-[![GitHub stars](https://img.shields.io/github/stars/subha-patra/star-rate)](https://github.com/subha-patra/star-rate/stargazers)
-[![GitHub license](https://img.shields.io/github/license/subha-patra/star-rate)](https://github.com/subha-patra/star-rate/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/universal-rating)](https://www.npmjs.com/package/universal-rating)
+[![npm downloads](https://img.shields.io/npm/dt/universal-rating)](https://www.npmjs.com/package/universal-rating)
+[![GitHub issues](https://img.shields.io/github/issues/subha-patra/universal-rating)](https://github.com/subha-patra/universal-rating/issues)
+[![GitHub stars](https://img.shields.io/github/stars/subha-patra/universal-rating)](https://github.com/subha-patra/universal-rating/stargazers)
+[![GitHub license](https://img.shields.io/github/license/subha-patra/universal-rating)](https://github.com/subha-patra/universal-rating/blob/main/LICENSE)
 
 
 ## 📄 License
